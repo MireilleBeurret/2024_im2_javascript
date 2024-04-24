@@ -8,3 +8,21 @@
 *
 * Was ist OCD: https://en.wikipedia.org/wiki/Obsessive%E2%80%93compulsive_disorder
 * */
+
+
+
+let zahl = prompt ("Gib eine Zahl ein.");
+
+zahl = Math.round(zahl);
+
+let rest = zahl % 2;
+
+console.log("Rest:", rest)
+
+if (rest == 0) {
+
+    console.log("Die Zahl ist gerade.");
+}
+else {
+    console.log("Die Zahl ist ungerade.");
+}
