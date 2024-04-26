@@ -51,3 +51,81 @@ const friends = [
 ];
 const friendsCt = document.querySelector('#friends');
 const filters = document.querySelectorAll('#filter>button');
+
+showFriends(friends);
+//showFriends(u30_friends);
+
+function showFriends(currentFriends) {
+    friendsCt.innerHTML = '';
+
+currentFriends.forEach(friend => {
+    const item = document.createElement('p');
+    item.innerText = friend.name;
+    friendsCt.appendChild(item);
+
+
+
+});
+}
+
+document.getElementById('all').addEventListener('click', filter);
+document.getElementById('u30').addEventListener('click', filter);
+document.getElementById('soccer').addEventListener('click', filter);
+document.getElementById('lena').addEventListener('click', filter);
+document.getElementById('winti').addEventListener('click', filter);
+document.getElementById('a').addEventListener('click', filter);
+
+
+function filter (event) {
+        
+        console.log('es wurde auf diesen Button gedrückt', event.target.id);
+
+        let filter = event.target.id;
+
+        if (filter == 'u30') {
+
+            let u30_friends = friends.filter ((friend) => {
+                return friend.alter < 30;
+                 
+                });
+
+                console.log(u30_friends);
+                showFriends(u30_friends);
+
+             } else if (filter == 'soccer') {
+
+                    let soccer_friends = friends.filter((friend) => {
+                        return friend.hobbies.includes('Fussball');
+                         
+                        })
+
+
+                
+                console.log(soccer_friends);
+                showFriends(soccer_friends);
+               
+            }
+            else if (filter == 'all') {
+                showFriends(friends);
+            }
+            else if (filter == 'lena') {
+                let lena_friends = friends.filter((friend) => {
+                    return friend.gemeinsame_freunde.includes('Lena');
+                });
+                showFriends(lena_friends);
+            }
+
+            else if (filter == 'winti') {
+                let winti_friends = friends.filter((friend) => {
+                    return friend.wohnort == 'Winterthur';
+                });
+                showFriends(winti_friends);
+            }
+
+            else if (filter == 'a') {
+                let a_friends = friends.filter((friend) => {
+                    return friend.wohnort == 'a';
+                });
+                showFriends(a_friends);
+            }
+        }

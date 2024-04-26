@@ -12,3 +12,8 @@ const game = [
 function isEven(number) {
     return number % 2 === 0;
 }
+game.forEach (row => {
+    row.forEach (field => {
+        console.log(field);
+    })  
+})q
